@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{padding:0;margin:0;}
+    ol{list-style:none}
+    .test-cont{margin-top:400px;}
+    .test-cont__item{display: flex;position:relative;padding-bottom:50px;}
+    .test-cont__item::before{content:"";position:absolute;top:20px;left:50%;width:1px;height:100%;background-color: #eee;}
+    .test-cont__item::after{content:"";position:absolute;top:20px;left:50%;width:1px;height:0;background-color: red;transition:height 1s}
+    .test-cont__item.active::after{height:100%}
+    .test-cont__year{width:50%;text-align:right;margin:5px 30px 5px 0}
+    .test-cont__year::before{content:"";position:absolute;top:10px;left:50%;width:10px;height:10px;border-radius:50%;;background-color: #eee;transform:translateX(-50%)}
+    .test-cont__item.active .test-cont__year::before{background-color: red}
+    .test-cont__sub-list{width:50%}
+    .test-cont__sub-item{display: flex;margin:5px 0}
+    .test-cont__sub-date{margin-right:10px;}
+
+    #test{position: fixed;top:0;font-size:30px;}
+    .test_value{position: absolute;left:0px;top:0;width:100%;text-align:left}
+</style>
+</head>
+<body>
+<div id="test"></div>
+<ol class="test-cont">
+    <li class="test-cont__item">
+        <div class="test-cont__year">2022 <div class="test_value"> item offset = <span class="offset">0</span>/ item height = <span class="height"></span></div></div>
+        <ol class="test-cont__sub-list">
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+        </ol>
+    </li>
+    <li class="test-cont__item">
+        <div class="test-cont__year">2021 <div class="test_value"> item offset = <span class="offset">0</span>/ item height = <span class="height"></span></div></div>
+        <ol class="test-cont__sub-list">
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+        </ol>
+    </li>
+    <li class="test-cont__item">
+        <div class="test-cont__year">2020 <div class="test_value"> item offset = <span class="offset">0</span>/ item height = <span class="height"></span></div></div>
+        <ol class="test-cont__sub-list">
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+        </ol>
+    </li>
+    <li class="test-cont__item">
+        <div class="test-cont__year">2019 <div class="test_value"> item offset = <span class="offset">0</span>/ item height = <span class="height"></span></div></div>
+        <ol class="test-cont__sub-list">
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">04.01</span> dolor sit amet consectetur adipisci[ng] velit</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+            <li class="test-cont__sub-item"><span class="test-cont__sub-date">12.10</span> sed quia non numquam [do] eius modi tempora inci[di]dunt</li>
+        </ol>
+    </li>
+</ol>
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script>
+$(function (){
+    let win_h  = $(window).height();
+    let cont_h = $(".test-cont").height();
+    console.log(win_h);
+    $item = $(".test-cont__item");
+    
+
+    $(window).scroll(function (){
+        let scr_t = $(window).scrollTop();
+        $("#test").text(scr_t);
+
+        $item.each(function (index){
+            let item_off = $(this).offset().top;
+            let item_h = $(this).outerHeight();
+            $(this).find(".offset").text(item_off);
+            $(this).find(".height").text(item_h);
+
+            if( scr_t + win_h / 2 >= item_off){
+                $item.eq(index).addClass("active");
+            }else{
+                $item.eq(index).removeClass("active");
+            }
+        });
+    });
+});
+</script>
