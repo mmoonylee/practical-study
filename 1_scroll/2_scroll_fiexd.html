@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>특정 섹션 넘어갈 시 fixed 되는 형태</title>
+    <style>
+    *{padding:0;margin:0;}
+    ul{list-style:none}
+    a{text-decoration: none;}
+
+
+    .visual-sec{height:500px;}
+
+    #test{position: fixed;top:0;font-size:30px;}
+    .test_value{position: absolute;left:0px;top:0;width:100%;text-align:left}
+
+    .test-sec{position: relative;}
+    .test-sec__preview{display:flex;justify-content:space-between;}
+    .test-sec__photo{width:50%;min-height:500px;margin:0;border:1px solid #222}
+    .test-sec__desc-wrap{width:50%;border:1px solid #222}
+    .test-sec__desc-wrap.float{position:fixed;top:0px;right:0px;}
+
+    .test-sec__content{width:50%;}
+    .test-sec__content-text{padding:50px;}
+
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <section class="visual-sec"></section>
+    <section id="float-sec" class="test-sec">
+        <div class="test-sec__preview">
+            <figure class="test-sec__photo"><img src="" alt=""></figure>
+            <div class="test-sec__desc-wrap">
+                <h3 class="test-sec__desc-title">제목 들어가는 곳</h3>
+                <div class="test-tsec__text-wrap">
+                    <p class="test-sec__text">부연설명 들어가는 곳 </p>
+                    <p class="test-sec__text">부연설명 들어가는 곳 </p>
+                    <p class="test-sec__text">부연설명 들어가는 곳 </p>
+                    <p class="test-sec__text">부연설명 들어가는 곳 </p>
+                    <p class="test-sec__text">부연설명 들어가는 곳 </p>
+                    <p class="test-sec__text">부연설명 들어가는 곳 </p>
+                </div>
+            </div>
+        </div>
+        <div class="test-sec__content">
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+            <article class="test-sec__content-sec">
+                <div class="test-sec__content-text">디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳디테일 내용 들어가는 곳</div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script>
+$(function (){
+    // Scroll
+    $(window).on("scroll", function (){
+        let scr_t = $(window).scrollTop();
+        $("#test").text(scr_t);
+        let float_top = $("#float-sec").offset().top;
+        if(float_top < scr_t){
+            $(".test-sec__desc-wrap").addClass("float");
+        }else{
+            $(".test-sec__desc-wrap").removeClass("float");
+        }
+    });
+});
+</script>

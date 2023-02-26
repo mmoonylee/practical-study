@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤시 섹션의 탑부터 active</title>
+<style>
+    *{padding:0;margin:0;}
+    ul{list-style:none}
+    a{text-decoration: none;}
+
+    #test{position: fixed;top:0;font-size:30px;}
+    .test_value{position: absolute;left:0px;top:0;width:100%;text-align:left}
+
+    section{display:flex;align-items:center;justify-content: center;height:100vh;font-size:40px;}
+    section:nth-child(1){background-color: pink;}
+    section:nth-child(2){background-color: orange;}
+    section:nth-child(3){background-color: yellow;}
+    section:nth-child(4){background-color: greenyellow;}
+    section:nth-child(5){background-color: skyblue;}
+
+    .navi{position:fixed;top:20px;right:20px;}
+    .navi__list{display: flex;gap:20px;}
+    .navi__link{color:#fff;}
+    .navi__item.active .navi__link{color:red}
+</style>
+</head>
+<body>
+    <div id="test"></div>
+
+    <nav class="navi">
+        <ul class="navi__list">
+            <li class="navi__item"><a href="#" class="navi__link">section 1</a></li>
+            <li class="navi__item"><a href="#" class="navi__link">section 2</a></li>
+            <li class="navi__item"><a href="#" class="navi__link">section 3</a></li>
+            <li class="navi__item"><a href="#" class="navi__link">section 4</a></li>
+            <li class="navi__item"><a href="#" class="navi__link">section 5</a></li>
+        </ul>
+    </nav>
+    <div class="section-wrap">
+        <section class="section-item">1</section>
+        <section class="section-item">2</section>
+        <section class="section-item">3</section>
+        <section class="section-item">4</section>
+        <section class="section-item">5</section>
+    </div>
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script>
+$(function (){
+    $item = $(".section-item");
+    
+    // Scroll
+    $(window).on("scroll", function (){
+        let scr_t = $(window).scrollTop();
+        $("#test").text(scr_t);
+
+        $item.each(function (index){
+            let item_top = $item.eq(index).position().top;
+            if (item_top <= scr_t) {
+                $(".navi__item.active").removeClass("active");
+                $(".navi__item").eq(index).addClass("active");
+            }
+        });
+    });
+
+    // Menu click
+    $(".navi__link").on("click", function (e){
+        e.preventDefault();
+        let scr_t = $(window).scrollTop();
+        let act_idx = $(this).parent().index();
+        let item_top = $item.eq(act_idx).position().top;
+        $("html, body").animate({scrollTop: item_top}, 1000);
+    });
+});
+</script>
